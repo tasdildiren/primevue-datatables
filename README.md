@@ -78,7 +78,7 @@ If you discover any security related issues, please email maosa.sam@gmail.com in
 
 ## Credits
 
--   [Sam Maosa](https://github.com/tasdildirens)
+-   [Uğur Taşdildiren](https://github.com/tasdildirens)
 -   [All Contributors](../../contributors)
 
 ## License
