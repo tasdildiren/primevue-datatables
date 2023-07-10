@@ -2,7 +2,6 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/tasdildiren/primevue-datatables.svg?style=flat-square)](https://packagist.org/packages/tasdildiren/primevue-datatables)
 [![Total Downloads](https://img.shields.io/packagist/dt/tasdildiren/primevue-datatables.svg?style=flat-square)](https://packagist.org/packages/tasdildiren/primevue-datatables)
-![GitHub Actions](https://github.com/tasdildiren/primevue-datatables/actions/workflows/main.yml/badge.svg)
 
 This is a simple, clean and fluent serve-side implementation of [PrimeVue Datatables](https://primefaces.org/primevue/showcase/#/datatable) in [Laravel](https://laravel.com/).
 
