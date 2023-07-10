@@ -1,8 +1,8 @@
 # Laravel + PrimeVue Datatables
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/savannabits/primevue-datatables.svg?style=flat-square)](https://packagist.org/packages/savannabits/primevue-datatables)
-[![Total Downloads](https://img.shields.io/packagist/dt/savannabits/primevue-datatables.svg?style=flat-square)](https://packagist.org/packages/savannabits/primevue-datatables)
-![GitHub Actions](https://github.com/savannabits/primevue-datatables/actions/workflows/main.yml/badge.svg)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/tasdildiren/primevue-datatables.svg?style=flat-square)](https://packagist.org/packages/tasdildiren/primevue-datatables)
+[![Total Downloads](https://img.shields.io/packagist/dt/tasdildiren/primevue-datatables.svg?style=flat-square)](https://packagist.org/packages/tasdildiren/primevue-datatables)
+![GitHub Actions](https://github.com/tasdildiren/primevue-datatables/actions/workflows/main.yml/badge.svg)
 
 This is a simple, clean and fluent serve-side implementation of [PrimeVue Datatables](https://primefaces.org/primevue/showcase/#/datatable) in [Laravel](https://laravel.com/).
 
@@ -20,7 +20,7 @@ This is a simple, clean and fluent serve-side implementation of [PrimeVue Datata
 You can install the package via composer:
 
 ```bash
-composer require savannabits/primevue-datatables
+composer require tasdildiren/primevue-datatables
 ```
 
 ## Usage
@@ -31,10 +31,7 @@ It is as simple as having this in your `index()` function of your controller:
 public function index(Request $request): JsonResponse
 {
     $list = PrimevueDatatables::of(Book::query())->make();
-    return response()->json([
-        'success' => true,
-        'payload' => $list,
-    ]);
+    return response()->json($list);
 }
 ```
 #### Required Query Parameters
@@ -43,7 +40,6 @@ You have to pass the following parameters as query params from the client:
 1. Searchable Columns **(Passed as `searchable_columns`)** - Used to specify the columns that will be used to perform the global datatable search
 2. Dt Params **(Passed as `dt_params`)** - This is the main Datatable event object as received from PrimeVue. See [Lazy Datatable](https://primefaces.org/primevue/showcase/#/datatable/lazy) documentation for more details
 ### Client Side:
-**Here is a gist of a [Fully Working Vue3 + Tailwindcss component](https://gist.github.com/coolsam726/f156daa5b36a7a8217526eb82bcaa798) for the client side**.<br>
 Go through [PrimeVue's Lazy Datatable](https://primefaces.org/primevue/showcase/#/datatable/lazy) documentation for details on frontend implementation.
 
 Here is an example of your `loadLazyData()` implementation:
@@ -53,15 +49,13 @@ const loadLazyData = async () => {
     loading.value = true;
 
     try {
-        const res = await axios.get('/api/books',{
-            params: {
-                dt_params: JSON.stringify(lazyParams.value),
-                searchable_columns: JSON.stringify(['title','author.name','price']),
-            },
+        const res = await axios.post('/api/books',{
+            dt_params: lazyParams.value,
+            searchable_columns: ['title','author.name','price'],
         });
 
-        records.value = res.data.payload.data;
-        totalRecords.value = res.data.payload.total;
+        records.value = res.data.data;
+        totalRecords.value = res.data.total;
         loading.value = false;
     } catch (e) {
         records.value = [];
@@ -70,13 +64,6 @@ const loadLazyData = async () => {
     }
 };
 ```
-
-### Testing
-
-```bash
-composer test
-```
-
 ### Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
@@ -91,7 +78,7 @@ If you discover any security related issues, please email maosa.sam@gmail.com in
 
 ## Credits
 
--   [Sam Maosa](https://github.com/savannabits)
+-   [Sam Maosa](https://github.com/tasdildirens)
 -   [All Contributors](../../contributors)
 
 ## License

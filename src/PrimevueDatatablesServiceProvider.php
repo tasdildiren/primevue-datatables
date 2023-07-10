@@ -1,6 +1,6 @@
 <?php
 
-namespace Savannabits\PrimevueDatatables;
+namespace Tasdildiren\PrimevueDatatables;
 
 use Illuminate\Support\ServiceProvider;
 

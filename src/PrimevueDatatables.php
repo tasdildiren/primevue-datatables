@@ -1,6 +1,6 @@
 <?php
 
-namespace Savannabits\PrimevueDatatables;
+namespace Tasdildiren\PrimevueDatatables;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -26,9 +26,8 @@ class PrimevueDatatables
 
     public function __construct()
     {
-        $this->_dtParams = json_decode(request()->get('dt_params', "[]"), true);
-        $this->_searchableColumns
-        = json_decode(request()->get('searchable_columns',"[]"), true);
+        $this->_dtParams = request()->get('dt_params', []);
+        $this->_searchableColumns = request()->get('searchable_columns', []);
     }
 
     public function dtParams(array $params): static

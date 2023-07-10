@@ -1,6 +1,6 @@
 <?php
 
-namespace Savannabits\PrimevueDatatables;
+namespace Tasdildiren\PrimevueDatatables;
 
 use Illuminate\Database\Eloquent\Builder;
 
@@ -24,10 +24,10 @@ class Filter
     const DATE_AFTER = 'dateAfter';
 
     private $likeOperator = 'LIKE';
-    
+
     public function __construct(public string $field, public ?string $value = null, public ?string $matchMode = self::CONTAINS)
     {
-        $this->likeOperator = \DB::connection()->getPDO()->getAttribute(\PDO::ATTR_DRIVER_NAME) == 'pgsql' ? 'ILIKE' : 'LIKE'; 
+        $this->likeOperator = \DB::connection()->getPDO()->getAttribute(\PDO::ATTR_DRIVER_NAME) == 'pgsql' ? 'ILIKE' : 'LIKE';
     }
 
     public function buildWhere(Builder &$q, ?bool $or = false)

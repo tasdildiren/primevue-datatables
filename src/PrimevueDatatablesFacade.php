@@ -1,11 +1,11 @@
 <?php
 
-namespace Savannabits\PrimevueDatatables;
+namespace Tasdildiren\PrimevueDatatables;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Savannabits\PrimevueDatatables\Skeleton\SkeletonClass
+ * @see \Tasdildiren\PrimevueDatatables\Skeleton\SkeletonClass
  */
 class PrimevueDatatablesFacade extends Facade
 {
